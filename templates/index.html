@@ -1,0 +1,23 @@
+{% extends './base.html' %}
+{%block title %}BASE ESCUELA DE CIRCO{% endblock %}
+{% block body %}
+
+<div class="contenedor_principal">
+    <h1>Escuela de circo</h1> <br>
+    <a href="{{ url_for('buscar_listados') }}" class="btn btn-secondary"> Listado </a><br>
+    <a href="{{ url_for('estudiante') }}" class="btn btn-secondary"> Estudiante </a>
+
+<form action="{{ url_for('cerrar') }}" method="get">
+    <button type="submit" class="btn btn-danger mb-3">
+        Cerrar Servidor
+    </button>
+</form>
+</div>
+
+    {% if mensaje %}
+    <p style="color:red;">{{ mensaje }}</p>
+    {% endif %}
+</div>
+
+
+{% endblock %}

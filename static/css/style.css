@@ -1,0 +1,88 @@
+
+* {
+    box-sizing: border-box;
+}
+*{
+    font-family: 'Noto Sans', sans-serif;
+}
+body,html {
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    background: linear-gradient(135deg, #e6ebf3 0%, #304f7b 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center; /* centro horizontal */
+    align-items: center;     /* centro vertical */
+    height: 100vh;           /* alto total de la pantalla */
+    margin: 0;
+}
+
+.contenedor_principal {
+    background-color: rgb(1, 19, 67);
+    display: grid; 
+    justify-content: center;
+    border-radius: 20px;
+    text-align: center;
+    margin: 30%;
+    padding: 1%;
+    font-weight: 100;
+}
+
+main{
+    margin-left: 5%;
+    margin-right: 5%;
+    height: auto
+}
+
+h1 {
+    color: rgb(228, 231, 246);
+}
+
+.tabla-scroll {
+    max-height: 65vh; /* en vez de px */
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+@media print {
+
+    /* Ocultar botones y links que no sirven en papel */
+    button,
+    a,
+    #verMas {
+        display: none !important;
+    }
+
+    /* Mostrar columnas ocultas al imprimir */
+    .extra-col {
+        display: table-cell !important;
+    }
+
+    /* Evitar cortes feos */
+    table {
+        page-break-inside: auto;
+    }
+
+    tr {
+        page-break-inside: avoid;
+        page-break-after: auto;
+    }
+
+    /* Colores Bootstrap en impresión */
+    .card-header {
+        background-color: #0d6efd !important;
+        color: white !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .badge {
+        border: 1px solid #000 !important;
+    }
+
+    body {
+        font-size: 12px;
+    }
+}

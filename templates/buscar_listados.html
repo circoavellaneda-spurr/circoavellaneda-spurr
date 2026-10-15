@@ -1,0 +1,50 @@
+{% extends './base.html' %}
+{%block title %}Historial Docente{% endblock %}
+{% block body %}
+
+<div class="contenedor_principal">
+    <h1>Buscador del Tribunal Docente</h1> <br>
+    <a href="{{ url_for('principal') }}" class="btn btn-secondary">
+            Volver
+        </a>
+
+<div class="card shadow-sm mb-4" style="max-width: 800px; margin-left: 0;">
+    <div class="card-header bg-primary text-white">
+        <h5 class="mb-0">Filtros de Búsqueda</h5>
+    </div>
+    <div class="card-body">
+        <form action="{{ url_for('resultado_lista') }}" method="POST">
+            <div class="mb-3">
+                <label class="form-label small fw-bold text-muted">INSTITUTOS</label>
+                <select name="talleres" class="form-control">
+                    <option value="CN-MA-1530-7A10">Circo Niñxs - Martes 15:30 - 7 A 10</option>
+                    <option value="CN-MI-1530-7A10">Circo Niñxs - Miercoles 15:30 - 7 A 10</option>
+                    <option value="CN-VI-1530-7A10">Circo Niñxs - Viernes 15:30 - 7 A 10</option>
+                    <option value="CLOWN-JU-18-ADUL">CLOWN - Jueves 18 - ADUL</option>
+                    <OPTION VALUE="PISO - MA 18 - ADUL">PISO - MA 18 - ADUL</OPTION>
+                    <option VALUE="PISO - JU 18 - ADUL">PISO - JU 18 - ADUL</option>
+                    <option VALUE="AEREO - MI 18 - ADUL">AEREO - MI 18 - ADUL</option>
+                    <option VALUE="AEREO - JU 18 - ADUL">AEREO - JU 18 - ADUL</option>
+                    <option VALUE="MAGIA - MA 19 - ADUL">MAGIA - MA 19 - ADUL</option>
+                </select>
+            </div>
+            <div class="d-grid">
+                <button type="submit" class="btn btn-primary fw-bold">Armar Listado</button>
+            </div>
+        </form>
+    </div>
+
+<form action="{{ url_for('cerrar') }}" method="get">
+    <button type="submit" class="btn btn-danger mb-3">
+        Cerrar Servidor
+    </button>
+</form>
+</div>
+
+    {% if mensaje %}
+    <p style="color:red;">{{ mensaje }}</p>
+    {% endif %}
+</div>
+
+
+{% endblock %}

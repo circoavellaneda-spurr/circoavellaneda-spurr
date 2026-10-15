@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block title %}
+Buscar estudiante
+{% endblock %}
+{% block body %}
+
+<div class="container mt-5 pt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-7">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">Buscar estudiante</h4>
+                </div>
+                <div class="card-body">
+                    {% if mensaje %}
+                    <div class="alert alert-warning">{{ mensaje }}</div>
+                    {% endif %}
+                    <p class="text-muted">
+                        Buscá un estudiante por
+                        <strong>apellido</strong>,
+                        <strong>nombre</strong> o
+                        <strong>DNI</strong>.
+                    </p>
+                <form action="{{ url_for('resultado_estudiante') }}" method="post">
+                    <div class="mb-3">
+                        <label class="form-label small fw-bold text-muted">DNI</label>
+                        <input
+                            type="text"
+                            name="legajo"
+                            placeholder="Ej: 12345"
+                            class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label small fw-bold text-muted">
+                            APELLIDO Y NOMBRE
+                        </label>
+
+                        <input
+                            type="text"
+                            name="Apellido_y_Nombre"
+                            placeholder="Buscar por nombre..."
+                            class="form-control">
+                    </div>
+
+                    <div class="d-grid">
+                        <button
+                            type="submit"
+                            class="btn btn-primary fw-bold">
+                            Buscar estudiante
+                        </button>
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
